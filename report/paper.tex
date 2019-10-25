@@ -1,0 +1,65 @@
+\documentclass[conference,10pt,letter]{IEEEtran}
+
+\usepackage{url}
+\usepackage{amssymb,amsthm}
+\usepackage{graphicx,color}
+
+%\usepackage{balance}
+
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{color, colortbl}
+\usepackage{times}
+\usepackage{caption}
+\usepackage{rotating}
+\usepackage{subcaption}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\XXXnote}[1]{{\bf\color{red} XXX: #1}}
+\newcommand{\YYYnote}[1]{{\bf\color{red} YYY: #1}}
+\newcommand*{\etal}{{\it et al.}}
+
+\newcommand{\eat}[1]{}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\im}{\item}
+\newcommand{\eg}{{\it e.g.}\xspace}
+\newcommand{\ie}{{\it i.e.}\xspace}
+\newcommand{\etc}{{\it etc.}\xspace}
+
+\def\P{\mathop{\mathsf{P}}}
+\def\E{\mathop{\mathsf{E}}}
+
+\begin{document}
+\sloppy
+\title{Building IPTV streaming service using commodity hardware}
+\maketitle
+\begin{abstract}
+
+  The purpose of this document is to get acquainted with the theory and practice behind 
+  IPTV streaming services. We hope that the knowledge obtained during the study will be
+  essential for those who will be maintaining and troubleshooting small scale IPTV 
+  infrastructure.
+
+  We start this short document with the discussion of the theory behind digital video broadcasting
+  services, including various modulation schemes, audio and video codecs, error correction algorithms,
+  and other related issues. We then move on to the discussion related to design and implementation of a simple IPTV streaming service using commodity hardware. Finally, to understand the scalability of the proposed architecture, we will perform a set of simple experiments (the experiments will mostly focus on microbanchmarking of various components of the system).
+
+\end{abstract}
+\input intro.tex
+\input background.tex
+\input hardware.tex
+\input experimental.tex
+\input conclusions.tex
+%\balance
+\bibliographystyle{abbrv}
+\bibliography{mybib}
+
+\end{document}
+

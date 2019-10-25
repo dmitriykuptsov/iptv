@@ -1,0 +1,36 @@
+# don't send the nginx version number in error pages and Server header
+server_tokens off;
+# config to don't allow the browser to render the page inside an frame or iframe
+# and avoid clickjacking http://en.wikipedia.org/wiki/Clickjacking
+# if you need to allow [i]frames, you can use SAMEORIGIN or even set an uri with ALLOW-FROM uri
+# https://developer.mozilla.org/en-US/docs/HTTP/X-Frame-Options
+add_header X-Frame-Options SAMEORIGIN;
+# This header enables the Cross-site scripting (XSS) filter built into most recent web browsers.
+# It's usually enabled by default anyway, so the role of this header is to re-enable the filter for 
+# this particular website if it was disabled by the user.
+# https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+add_header X-XSS-Protection "1; mode=block";
+etag off;
+
+server {
+        listen 80 default_server;
+
+        root /var/www/html/;
+
+        server_name _;
+
+        # Delivery of segmented MPEG-2 stream files, key file (if any), playlist
+        location /streaming {
+                proxy_pass http://localhost:5000;
+        }
+
+        # Frontend API calls
+        location /api {
+                proxy_pass http://localhost:5000;
+        }
+
+        # HTML, CSS, Images, etc.
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}

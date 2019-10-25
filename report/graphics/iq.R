@@ -1,0 +1,11 @@
+t<-seq(0, 2, 0.01);
+q<-1;
+i<-1;
+f<-1;
+pdf("iq.pdf", height=4);
+plot(t, i*cos(2*pi*f*t), type="l", col="dark blue", lwd=3, main="", xlab="Time, s", ylab="Amplitude", ylim=c(-1.5, 1.5), xlim=c(0, 2));
+points(t, q*cos(2*pi*f*t + pi / 2), type="l", col="skyblue", lwd=3);
+points(t, i*cos(2*pi*f*t) - q*sin(2*pi*f*t), type="l", col="deepskyblue4", lwd=3);
+legend("bottomleft", c("In-phase signal", "Quadrature signal", "Modulated signal"), col=c("dark blue", "skyblue", "deepskyblue4"), lwd=3, bty='n');
+grid(col="black");
+dev.off();

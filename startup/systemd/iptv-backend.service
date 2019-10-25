@@ -1,0 +1,12 @@
+[Unit]
+Description=uWSGI instance to serve IPTV project
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/iptv/service/
+ExecStart=/usr/local/bin/uwsgi --socket 0.0.0.0:5000 --master --processes 10 --protocol=http -w wsgi:app 
+
+[Install]
+WantedBy=multi-user.target

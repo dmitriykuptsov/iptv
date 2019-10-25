@@ -1,0 +1,37 @@
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT DROP [0:0]
+-A INPUT -i lo -j ACCEPT
+# NTP
+-A INPUT -i wlan0 -p tcp -m tcp --sport 123 -j ACCEPT
+-A INPUT -i wlan0 -p udp -m udp --sport 123 -j ACCEPT
+# DNS
+-A INPUT -i wlan0 -p tcp -m tcp --sport 53 -j ACCEPT
+-A INPUT -i wlan0 -p udp -m udp --sport 53 -j ACCEPT
+# HTTP
+-A INPUT -i wlan0 -p tcp -m tcp --dport 80 -j ACCEPT
+# HTTPS
+-A INPUT -i wlan0 -p tcp -m tcp --dport 443 -j ACCEPT
+# SSH
+-A INPUT -i wlan0 -p tcp -m tcp --dport 22 -j ACCEPT
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+# Perhaps we need to filter the output too...
+-A OUTPUT -o lo -j ACCEPT
+# SSH client connections to Github.com
+-A OUTPUT -o wlan0 -p tcp -m tcp --dport 22 -d github.com -j ACCEPT
+# Allow HTTP connection to tvcom.uz, the service which distributes the TV guide
+-A OUTPUT -o wlan0 -p tcp -m tcp --dport 443 -d tvcom.uz -j ACCEPT
+# NTP
+-A OUTPUT -o wlan0 -p tcp -m tcp --dport 123 -j ACCEPT
+-A OUTPUT -o wlan0 -p udp -m udp --dport 123 -j ACCEPT
+# SSH server
+-A OUTPUT -o wlan0 -p tcp -m tcp --sport 22 -j ACCEPT
+# HTTPS
+-A OUTPUT -o wlan0 -p tcp -m tcp --sport 443 -j ACCEPT
+# HTTP
+-A OUTPUT -o wlan0 -p tcp -m tcp --sport 80 -j ACCEPT
+# DNS
+-A OUTPUT -o wlan0 -p tcp -m tcp --dport 53 -j ACCEPT
+-A OUTPUT -o wlan0 -p udp -m udp --dport 53 -j ACCEPT
+COMMIT

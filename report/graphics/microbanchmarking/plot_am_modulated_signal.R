@@ -1,0 +1,16 @@
+t<-seq(0, 1, 0.001);
+A_m<-1;
+A_c<-2;
+cf<-100;
+mf<-2;
+phi<-0;
+c<-A_c*sin(2*pi*cf*t + phi);
+m<-A_m*sin(2*pi*mf*t + phi);
+y<-(A_c+m)*c;
+#y<-m*c;
+pdf("amplitude_modulation.pdf");
+par(mfrow=c(3,1));
+plot(t, c, col="deepskyblue3", type="l", lwd=2, main="Carrier signal", xlab="Time, seconds", ylab="Amplitude");
+plot(t, m, col="dark blue", type="l", lwd=2, main="Modulating signal", xlab="Time, seconds", ylab="Amplitude");
+plot(t, y, col="deepskyblue3", type="l", lwd=2, main="Overall modulated signal", xlab="Time, seconds", ylab="Amplitude");
+dev.off();

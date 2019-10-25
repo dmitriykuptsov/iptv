@@ -1,0 +1,151 @@
+html, body {
+	/*margin-left: 0xp;
+	height: 100%;*/
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.login-form {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 100%;
+}
+
+input {
+	margin-top: 10px;
+	width: calc(100%); 
+}
+
+#login_btn {
+	margin-top: 10px;
+	float: right;
+}
+
+#login_btn, #cancel_registration_btn, #goto_register_btn, #register_btn {
+	margin-top: 10px;
+	float: right;
+}
+
+.container {
+	height: calc(100vh - 120px);
+}
+
+.channels {
+	margin-top: 60px;
+	margin-right: 0px;
+	position: absolute;
+	width: calc(20%);
+	right: 0px;
+	top: 0px;
+	height: calc(100% - 120px);
+	font: bold;
+	font-size: 18px;
+	color: #AAA;
+	overflow-y: scroll;
+}
+
+.tv-program {
+	margin-top: 60px;
+	margin-left: 0px;
+	position: absolute;
+	width: calc(20%);
+	left: 0px;
+	top: 0px;
+	height: calc(100% - 120px);
+	font: bold;
+	font-size: 18px;
+	color: #AAA;
+	overflow-y: scroll;
+}
+
+.header {
+	/*position: absolute;*/
+	top: 0px;
+	left: 0px;
+	height: 60px;
+	width: 100%;
+	font-size: 20px;
+	font-color: #AAA;
+	background-color: #f3c75c;
+}
+
+.player-container {
+	margin-top: 100px;
+	/*margin-left: calc(20% + 10px);*/
+	width: calc(60% - 20px);
+	height: calc(100% - 120px);
+}
+
+
+.footer {
+	/*position: absolute;*/
+	margin: auto auto 0 auto;
+	/*bottom: 0px;
+	left: 0px;*/
+	height: 60px;
+	width: 100%;
+	font-size: 20px;
+	font-color: #AAA;
+	background-color: #f3c75c;
+}
+
+/*I did not found a way to make stiky footer working on small screens*/
+@media (max-width: 748px){
+        .footer, .left { 
+                display : none; 
+                visibility : hidden; 
+        }
+}
+
+.past-program {
+	color: #AAA;
+	font-weight: bold;
+}
+
+.current-program {
+	color: #f3c75c;
+	font-weight: bold;
+}
+
+.future-program {
+	color: black;
+	font-weight: bold;
+}
+
+/*Set the row height to the viewport*/
+.row-height{
+  height: calc(100vh - 120px);
+}
+
+/*Set up the columns with a 100% height, body color and overflow scroll*/
+
+.left {
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.right {
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.mid {
+	height: 100%;
+}
+
+#player {
+	width: calc(100%);
+	height: calc(90%);
+	/*overflow: hidden;*/
+}
+
+/*Remove the scrollbar from Chrome, Safari, Edge and IE*/
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+* {
+  -ms-overflow-style: none !important;
+}
