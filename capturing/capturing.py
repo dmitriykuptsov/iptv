@@ -263,7 +263,7 @@ def is_key_frame(b):
 			# The NALU type are the first 5 bits 
 			nal_type = (b[offset + 4] & 0x1F);
 			#if nal_type == IDR_FRAME_REVERSE_ENGINEERED or nal_type == IDR_2_FRAME_REVERSE_ENGINEERED:
-			if nal_type == H264_NAL_IDR_SLICE or nal_type == H264_NAL_NON_IDR_SLICE:
+			if nal_type == H264_NAL_IDR_SLICE or nal_type == H264_NAL_NONIDR_SLICE:
 				idr_found = True;
 			#if nal_type == SPS_FRAME_REVERSE_ENGINEERED:
 			if nal_type == H264_NAL_SPS:
